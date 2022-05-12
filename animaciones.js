@@ -14,6 +14,7 @@ function jugar(valor){
     eleccionMaq()
     totalPartidas++
     document.getElementById('partidas').innerHTML = totalPartidas;
+    document.getElementById('tablero').innerHTML = partidasGanadasUser + "-" + partidasGanadasMaq;
     evaluacion()
     history(valorUsuario,valorMaquina);
 }
