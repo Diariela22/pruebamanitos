@@ -62,11 +62,11 @@ function evaluacion(){
         partidasGanadasMaq++
         document.getElementById('tablero').innerHTML = partidasGanadasUser + "-" + partidasGanadasMaq;
     } else if ( valorUsuario == opcionesUser[0] && valorMaquina == opcionesMaq[2]) {
-        document.getElementById('resultado').innerHTML = 'FELICIDADES ERES EL GANADOR';
+        document.getElementById('resultado').innerHTML = 'GANASTE';
         partidasGanadasUser++
         document.getElementById('tablero').innerHTML = partidasGanadasUser + "-" + partidasGanadasMaq;
     }else if ( valorUsuario == opcionesUser[1] && valorMaquina == opcionesMaq[0]) {
-        document.getElementById('resultado').innerHTML = 'FELICIDADES ERES EL GANADOR';
+        document.getElementById('resultado').innerHTML = 'GANASTE';
         partidasGanadasUser++
         document.getElementById('tablero').innerHTML = partidasGanadasUser + "-" + partidasGanadasMaq;
     }else if ( valorUsuario == opcionesUser[1] && valorMaquina == opcionesMaq[2]) {
@@ -78,7 +78,7 @@ function evaluacion(){
         partidasGanadasMaq++
         document.getElementById('tablero').innerHTML = partidasGanadasUser + "-" + partidasGanadasMaq;
     }else  {
-        document.getElementById('resultado').innerHTML = 'FELICIDADES ERES EL GANADOR';
+        document.getElementById('resultado').innerHTML = 'GANASTE';
         partidasGanadasUser++
         document.getElementById('tablero').innerHTML = partidasGanadasUser + "-" + partidasGanadasMaq;
     }
@@ -87,7 +87,7 @@ function evaluacion(){
 function history(valorUser,valorMaq){
   document.getElementById('historial').innerHTML= '';  
   historial.unshift(valorUser + '-' + valorMaq);  //colocar de primero en el array
-  if (historial.length > 5 ){    //longitud del array
+  if (historial.length > 3 ){    //longitud del array
     historial.pop();   //eliminar el ultimo elemento de un array
   }
   for (const elemento of historial){
@@ -97,7 +97,6 @@ function history(valorUser,valorMaq){
     imagenUser.classList.add('w-16', 'h-9')
     let imagenMaq = document.createElement('img')
     imagenMaq.classList.add('w-16', 'h-9')
-
     let guion = document.createElement('p')
     imagenUser.src = valorUser;
     imagenMaq.src = valorMaq;
