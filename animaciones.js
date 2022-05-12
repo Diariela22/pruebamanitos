@@ -97,12 +97,27 @@ function history(valorUser,valorMaq){
     let div = document.createElement('div');
     div.classList.add('flex', 'items-center' , 'justify-center')
     let imagenUser = document.createElement('img')
-    imagenUser.classList.add('w-16', 'h-9')
+    imagenUser.classList.add('w-10', 'h-9')
     let imagenMaq = document.createElement('img')
-    imagenMaq.classList.add('w-16', 'h-9')
+    imagenMaq.classList.add('w-10', 'h-9')
     let guion = document.createElement('p')
     imagenUser.src = valorUser;
+        if (valorUser == 'imagenes/piedrader.jpg'){
+            imagenUser.src = 'imagenes/piedrahist.jpg';
+        } else if (valorUser == 'imagenes/papelder.jpg'){
+            imagenUser.src = 'imagenes/papelhist.jpg';
+        } else {
+            imagenUser.src = 'imagenes/tijerahist.jpg';
+        }
+
     imagenMaq.src = valorMaq;
+        if (valorMaq == 'imagenes/piedraizq.jpg'){
+            imagenMaq.src = 'imagenes/piedrahist.jpg';
+        } else if (valorMaq == 'imagenes/papelizq.jpg'){
+            imagenMaq.src = 'imagenes/papelhist.jpg';
+        } else {
+            imagenMaq.src = 'imagenes/tijerahist.jpg';
+        }
     guion.innerHTML = '-';
     div.appendChild(imagenUser);
     div.appendChild(guion);
