@@ -90,7 +90,7 @@ function evaluacion(){
 function history(valorUser,valorMaq){
   document.getElementById('historial').innerHTML= '';  
   historial.unshift(valorUser + '-' + valorMaq);  //colocar de primero en el array
-  if (historial.length > 2 ){    //longitud del array
+  if (historial.length > 5 ){    //longitud del array
     historial.pop();   //eliminar el ultimo elemento de un array
   }
   for (const elemento of historial){
