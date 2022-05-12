@@ -125,7 +125,10 @@ function nuevoJuego(){
     document.getElementById('nombrePartidas').innerHTML = '';
     document.getElementById('nombreHistorial').innerHTML = '';
     document.getElementById('nombretablero').innerHTML = '';
-    totalPartidas=0
+    totalPartidas=0;
+    partidasGanadasUser= 0 ;//partidas ganadas usuario
+    partidasGanadasMaq= 0;
+    historial=[];
 }
 
 
