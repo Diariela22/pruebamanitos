@@ -12,7 +12,6 @@ var historial=[]
 function jugar(valor){
     elegir(valor)
     eleccionMaq()
-    document.getElementById('tablero').innerHTML = partidasGanadasUser + "-" + partidasGanadasMaq;
     totalPartidas++
     document.getElementById('partidas').innerHTML = totalPartidas;
     evaluacion()
@@ -61,21 +60,27 @@ function evaluacion(){
     } else if ( valorUsuario == opcionesUser[0] && valorMaquina == opcionesMaq[1]) {
         document.getElementById('resultado').innerHTML = 'PERDISTE';
         partidasGanadasMaq++
+        document.getElementById('tablero').innerHTML = partidasGanadasUser + "-" + partidasGanadasMaq;
     } else if ( valorUsuario == opcionesUser[0] && valorMaquina == opcionesMaq[2]) {
         document.getElementById('resultado').innerHTML = 'FELICIDADES ERES EL GANADOR';
         partidasGanadasUser++
+        document.getElementById('tablero').innerHTML = partidasGanadasUser + "-" + partidasGanadasMaq;
     }else if ( valorUsuario == opcionesUser[1] && valorMaquina == opcionesMaq[0]) {
         document.getElementById('resultado').innerHTML = 'FELICIDADES ERES EL GANADOR';
         partidasGanadasUser++
+        document.getElementById('tablero').innerHTML = partidasGanadasUser + "-" + partidasGanadasMaq;
     }else if ( valorUsuario == opcionesUser[1] && valorMaquina == opcionesMaq[2]) {
         document.getElementById('resultado').innerHTML = 'PERDISTE';
         partidasGanadasMaq++
+        document.getElementById('tablero').innerHTML = partidasGanadasUser + "-" + partidasGanadasMaq;
     }else if ( valorUsuario == opcionesUser[2] && valorMaquina == opcionesMaq[0]) {
         document.getElementById('resultado').innerHTML = 'PERDISTE';
         partidasGanadasMaq++
+        document.getElementById('tablero').innerHTML = partidasGanadasUser + "-" + partidasGanadasMaq;
     }else  {
         document.getElementById('resultado').innerHTML = 'FELICIDADES ERES EL GANADOR';
         partidasGanadasUser++
+        document.getElementById('tablero').innerHTML = partidasGanadasUser + "-" + partidasGanadasMaq;
     }
 }
     
@@ -89,8 +94,9 @@ function history(valorUser,valorMaq){
     let div = document.createElement('div');
     div.classList.add('flex', 'items-center' , 'justify-center')
     let imagenUser = document.createElement('img')
-    imagenUser.classList.add('h-28' ,'w-20')
+    imagenUser.classList.add('w-16', 'h-9')
     let imagenMaq = document.createElement('img')
+    imagenMaq.classList.add('w-16', 'h-9')
 
     let guion = document.createElement('p')
     imagenUser.src = valorUser;
