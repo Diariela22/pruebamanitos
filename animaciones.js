@@ -38,7 +38,8 @@ function nombres(){
     document.getElementById('VS').innerHTML = 'VS'
     document.getElementById('nombrePartidas').innerHTML = 'PARTIDAS'
     document.getElementById('nombreHistorial').innerHTML = 'HISTORIAL'
-    document.getElementById('nombretablero').innerHTML = 'TABLERO'
+    document.getElementById('nombretablero').innerHTML = 'TABLERO';
+    document.getElementById('nuevoJuegobutton').classList = ('bg-cyan-900');
 }
 
 
@@ -110,15 +111,20 @@ function history(valorUser,valorMaq){
 }
 
 
-function nuevaPartida(){
-    valores = '';
+function nuevoJuego(){
     document.getElementById('manoPlayer').src = '';
     document.getElementById('manoMaq').src = '';
     document.getElementById('resultado').innerHTML = '';
-    document.getElementById('VS').innerHTML = '';
     document.getElementById('historial').innerHTML= ''; 
     document.getElementById('partidas').innerHTML= ''; 
     document.getElementById('tablero').innerHTML = '';
+    document.getElementById('nombreJugador').innerHTML = '';
+    document.getElementById('nombrePC').innerHTML = '';
+    document.getElementById('VS').innerHTML = '';
+    document.getElementById('nombrePartidas').innerHTML = '';
+    document.getElementById('nombreHistorial').innerHTML = '';
+    document.getElementById('nombretablero').innerHTML = '';
+    totalPartidas=0
 }
 
 
