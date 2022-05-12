@@ -87,8 +87,11 @@ function history(valorUser,valorMaq){
   }
   for (const elemento of historial){
     let div = document.createElement('div');
+    div.classList.add('flex', 'items-center' , 'justify-center')
     let imagenUser = document.createElement('img')
+    imagenUser.classList.add('w-60' ,  'h-28')
     let imagenMaq = document.createElement('img')
+
     let guion = document.createElement('p')
     imagenUser.src = valorUser;
     imagenMaq.src = valorMaq;
