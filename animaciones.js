@@ -38,6 +38,7 @@ function nombres(){
     document.getElementById('VS').innerHTML = 'VS'
     document.getElementById('nombrePartidas').innerHTML = 'PARTIDAS'
     document.getElementById('nombreHistorial').innerHTML = 'HISTORIAL'
+    document.getElementById('nombretablero').innerHTML = 'TABLERO'
 }
 
 
@@ -87,7 +88,7 @@ function evaluacion(){
 function history(valorUser,valorMaq){
   document.getElementById('historial').innerHTML= '';  
   historial.unshift(valorUser + '-' + valorMaq);  //colocar de primero en el array
-  if (historial.length > 3 ){    //longitud del array
+  if (historial.length > 2 ){    //longitud del array
     historial.pop();   //eliminar el ultimo elemento de un array
   }
   for (const elemento of historial){
@@ -109,16 +110,15 @@ function history(valorUser,valorMaq){
 }
 
 
-function siguienteRonda(){
+function nuevaPartida(){
     valores = '';
-    document.getElementById('valorUsuario').innerHTML = valores;
-    document.getElementById('valorUsuario2').innerHTML = valores;
-    document.getElementById('valorMaq').innerHTML = valores;
-    document.getElementById('resultado').innerHTML = valores;
+    document.getElementById('manoPlayer').src = '';
+    document.getElementById('manoMaq').src = '';
+    document.getElementById('resultado').innerHTML = '';
+    document.getElementById('VS').innerHTML = '';
+    document.getElementById('historial').innerHTML= ''; 
+    document.getElementById('partidas').innerHTML= ''; 
+    document.getElementById('tablero').innerHTML = '';
 }
 
-
-function nuevaPartida(){         
-    siguienteRonda();
-}
 
