@@ -1,12 +1,14 @@
-var valorUsuario='' //valor usuario
-var valorMaquina='' //valor maq
+var rutaUsuario='' //valor usuario
+var rutaMaquina='' //valor maq
+var valorUsuario='';
+var valorMaquina='';
 var partidasGanadasUser= 0 //partidas ganadas usuario
 var partidasGanadasMaq= 0 //partidas ganadas maq
 // var partidasPerdidasUser='' //partidas perdidas usuario 
 // var partidasPerdidasMaq='' //partidas perdidas maq 
 var totalPartidas='' //total partidas
-var opcionesUser=['imagenes/piedrader.jpg','imagenes/papelder.jpg','imagenes/tijerader.jpg']  // array de opciones usuario
-var opcionesMaq=['imagenes/piedraizq.jpg','imagenes/papelizq.jpg','imagenes/tijeraizq.jpg']  // array de opciones maquina
+var opcionesUser=['piedra.jpg','papel.jpg','tijera.jpg']  // array de opciones usuario
+var opcionesMaq=['piedra.jpg','papel.jpg','tijera.jpg']  // array de opciones maquina
 var historial=[]
 
 function jugar(valor){
@@ -21,14 +23,17 @@ function jugar(valor){
 
 function elegir(valor){
     if (valor === '0'){
-        valorUsuario = opcionesUser[0];
-        document.getElementById('manoPlayer').src = valorUsuario;
+        rutaUsuario = `imagenes/usuario/${opcionesUser[0]}`;
+        valorUsuario = opcionesUser[0]
+        document.getElementById('manoPlayer').src = rutaUsuario;
     }else if (valor === '1'){
-        valorUsuario = opcionesUser[1];
-        document.getElementById('manoPlayer').src = valorUsuario;
+        rutaUsuario = `imagenes/usuario/${opcionesUser[1]}`;
+        valorUsuario = opcionesUser[1]
+        document.getElementById('manoPlayer').src = rutaUsuario;
     }else {
-        valorUsuario = opcionesUser[2];
-        document.getElementById('manoPlayer').src = valorUsuario;
+        rutaUsuario = `imagenes/usuario/${opcionesUser[2]}`;
+        valorUsuario = opcionesUser[2]
+        document.getElementById('manoPlayer').src = rutaUsuario;
     }
     nombres()
 }
@@ -40,15 +45,17 @@ function nombres(){
     document.getElementById('nombrePartidas').innerHTML = 'PARTIDAS'
     document.getElementById('nombreHistorial').innerHTML = 'HISTORIAL'
     document.getElementById('nombretablero').innerHTML = 'TABLERO';
-    document.getElementById('nuevoJuegobutton').classList = ('bg-cyan-900');
+    document.getElementById('nuevoJuegobutton').classList.remove('hidden');
 }
 
 
 
 function eleccionMaq(){                                                         // SI LO VOY A PONER AUTOMATICO DEBO PONERLE PARAMETRO OPCION A LA FUNCION 
     var aleatorio = Math.floor(Math.random()*3);      // valor maquina
+    rutaMaquina= `imagenes/maquina/${opcionesMaq[aleatorio]}` 
     valorMaquina = opcionesMaq[aleatorio]
-    document.getElementById('manoMaq').src = valorMaquina;
+    document.getElementById('manoMaq').src = rutaMaquina
+;
 }
   
 
@@ -89,39 +96,51 @@ function evaluacion(){
     
 function history(valorUser,valorMaq){
   document.getElementById('historial').innerHTML= '';  
-  historial.unshift(valorUser + '-' + valorMaq);  //colocar de primero en el array
+//   historial.unshift('img src="valorUser"' + '-' + valorMaq);.
+  historial.unshift(`<img class="w-10 h-9" src="imagenes/historico/${valorUser}"/> - <img class="w-10 h-9" src="imagenes/historico/${valorMaq}"/>`);
   if (historial.length > 5 ){    //longitud del array
     historial.pop();   //eliminar el ultimo elemento de un array
   }
   for (const elemento of historial){
     let div = document.createElement('div');
     div.classList.add('flex', 'items-center' , 'justify-center')
-    let imagenUser = document.createElement('img')
-    imagenUser.classList.add('w-10', 'h-9')
-    let imagenMaq = document.createElement('img')
-    imagenMaq.classList.add('w-10', 'h-9')
-    let guion = document.createElement('p')
-    imagenUser.src = valorUser;
-        if (valorUser == 'imagenes/piedrader.jpg'){
-            imagenUser.src = 'imagenes/piedrahist.jpg';
-        } else if (valorUser == 'imagenes/papelder.jpg'){
-            imagenUser.src = 'imagenes/papelhist.jpg';
-        } else {
-            imagenUser.src = 'imagenes/tijerahist.jpg';
-        }
+    div.innerHTML= elemento;
 
-    imagenMaq.src = valorMaq;
-        if (valorMaq == 'imagenes/piedraizq.jpg'){
-            imagenMaq.src = 'imagenes/piedrahist.jpg';
-        } else if (valorMaq == 'imagenes/papelizq.jpg'){
-            imagenMaq.src = 'imagenes/papelhist.jpg';
-        } else {
-            imagenMaq.src = 'imagenes/tijerahist.jpg';
-        }
-    guion.innerHTML = '-';
-    div.appendChild(imagenUser);
-    div.appendChild(guion);
-    div.appendChild(imagenMaq);
+
+    /*
+        imagenes/usuario
+                /maquina
+                /historico 
+                / piedra, papel, tijera
+                
+    */
+
+    // let imagenUser = document.createElement('img')
+    // imagenUser.classList.add('w-10', 'h-9')
+    // let imagenMaq = document.createElement('img')
+    // imagenMaq.classList.add('w-10', 'h-9')
+    // let guion = document.createElement('p')
+    // imagenUser.src = valorUser;
+    //     if (valorUser == 'imagenes/usuario/piedra.jpg'){
+    //         imagenUser.src = 'imagenes/historico/piedra.jpg';
+    //     } else if (valorUser == 'imagenes/usuario/papel.jpg'){
+    //         imagenUser.src = 'imagenes/papelhist.jpg';
+    //     } else {
+    //         imagenUser.src = 'imagenes/tijerahist.jpg';
+    //     }
+
+    // imagenMaq.src = valorMaq;
+    //     if (valorMaq == 'imagenes/maquina/piedra.jpg'){
+    //         imagenMaq.src = 'imagenes/historico/piedra.jpg';
+    //     } else if (valorMaq == 'imagenes/maquina/papel.jpg'){
+    //         imagenMaq.src = 'imagenes/papelhist.jpg';
+    //     } else {
+    //         imagenMaq.src = 'imagenes/tijerahist.jpg';
+    //     }
+    // guion.innerHTML = '-';
+    // div.appendChild(imagenUser);
+    // div.appendChild(guion);
+    // div.appendChild(imagenMaq);
     document.getElementById('historial').appendChild(div);
   }
 }
@@ -140,6 +159,7 @@ function nuevoJuego(){
     document.getElementById('nombrePartidas').innerHTML = '';
     document.getElementById('nombreHistorial').innerHTML = '';
     document.getElementById('nombretablero').innerHTML = '';
+    document.getElementById('nuevoJuegobutton').classList.add('hidden');
     totalPartidas=0;
     partidasGanadasUser= 0 ;//partidas ganadas usuario
     partidasGanadasMaq= 0;
