@@ -40,7 +40,7 @@ function nombres(){
     document.getElementById('nombrePartidas').innerHTML = 'PARTIDAS'
     document.getElementById('nombreHistorial').innerHTML = 'HISTORIAL'
     document.getElementById('nombretablero').innerHTML = 'TABLERO';
-    document.getElementById('nuevoJuegobutton').classList = ('bg-cyan-900');
+    document.getElementById('nuevoJuegobutton').classList.remove('hidden');
 }
 
 
@@ -140,6 +140,7 @@ function nuevoJuego(){
     document.getElementById('nombrePartidas').innerHTML = '';
     document.getElementById('nombreHistorial').innerHTML = '';
     document.getElementById('nombretablero').innerHTML = '';
+    document.getElementById('nuevoJuegobutton').classList.add('hidden');
     totalPartidas=0;
     partidasGanadasUser= 0 ;//partidas ganadas usuario
     partidasGanadasMaq= 0;
